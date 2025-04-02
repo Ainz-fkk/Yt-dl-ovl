@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["npm","run","Ovl"]
+CMD ["npm","run","start-ovl"]
