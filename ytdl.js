@@ -53,10 +53,17 @@ app.get('/ovl-yt-dl', async (req, res) => {
 
   try {
     const final_url = await ytdl(url, format);
-    res.json({ url: final_url });
+    res.json({ 
+      status: true, 
+      creator: "Ainz", 
+      url: final_url 
+    });
   } catch (error) {
     console.error('Erreur lors de la récupération du lien:', error);
-    res.status(500).json({ error: 'Erreur interne du serveur' });
+    res.status(500).json({ 
+      status: false, 
+      error: 'Erreur interne du serveur' 
+    });
   }
 });
 
