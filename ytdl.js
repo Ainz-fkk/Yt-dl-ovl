@@ -26,14 +26,8 @@ async function ytdl(url, format = 'mp4', maxRetries = 15) {
         if (medias.length === 0) {
           throw new Error(`Format ${format} non disponible ou audio non trouvé pour cette vidéo.`);
         }
-        const media = await axios.get(medias[medias.length - 1].url, {
-      responseType: "arraybuffer",
-      headers: {
-        "User-Agent": "GoogleBot",
-      },
-    });
-        return media.data
-        
+
+        return medias[medias.length - 1].url;
       } else {
         throw new Error("Erreur API: " + (response.data?.message || "Réponse invalide"));
       }
